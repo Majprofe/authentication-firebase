@@ -14,11 +14,14 @@ import {
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID, 
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
+
+console.log("Configuración de Firebase:", firebaseConfig);
+
 
 // Inicializamos Firebase con esa configuración
 const app = initializeApp(firebaseConfig);
@@ -37,6 +40,12 @@ if (registerForm) {
     const pass = registerForm.password.value;
     // "rol" si lo tenías en el formulario, también. Pero si no guardas en DB, 
     // no tiene mucha utilidad. Lo omites o lo usas en un custom claim.
+    
+
+    if (!email || !pass) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
     
     try {
       // Creas el usuario en Auth
@@ -61,6 +70,12 @@ if (loginForm) {
     e.preventDefault();
     const email = loginForm.email.value;
     const pass  = loginForm.password.value;
+
+    if (!email || !pass) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+    
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, pass);
       const user = userCredential.user;

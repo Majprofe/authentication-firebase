@@ -45,36 +45,38 @@
 </head>
 <body>
   <h1>API Tester</h1>
-
-  <!-- Login Endpoint -->
+  <!-- GET /user/profile -->
   <div class="endpoint">
-    <h2>Login</h2>
-    <label for="email">Email:</label>
-    <input type="email" id="login-email" placeholder="Enter your email">
-
-    <label for="password">Password:</label>
-    <input type="password" id="login-password" placeholder="Enter your password">
-
-    <button onclick="loginUser()">Login</button>
-    <div id="login-response" class="response"></div>
+    <h2>GET /user/profile</h2>
+    <button onclick="getUserProfile()">Get User Profile</button>
+    <div id="profile-response" class="response"></div>
   </div>
 
-  <!-- Custom Endpoint -->
+  <!-- GET /admin/dashboard -->
   <div class="endpoint">
-    <h2>Custom Endpoint</h2>
-    <label for="custom-endpoint">Endpoint URL:</label>
-    <input type="text" id="custom-endpoint" placeholder="Enter endpoint URL">
-
-    <label for="custom-method">HTTP Method:</label>
-    <input type="text" id="custom-method" placeholder="Enter HTTP method (GET, POST, etc.)">
-
-    <label for="custom-data">Request Body (JSON):</label>
-    <textarea id="custom-data" placeholder="Enter JSON data"></textarea>
-
-    <button onclick="callEndpoint()">Call Endpoint</button>
-    <div id="custom-response" class="response"></div>
+    <h2>GET /admin/dashboard</h2>
+    <button onclick="getAdminDashboard()">Get Admin Dashboard</button>
+    <div id="dashboard-response" class="response"></div>
   </div>
 
-  <script src="api-tester.js"></script>
+  <!-- POST /user/data -->
+  <div class="endpoint">
+    <h2>POST /user/data</h2>
+    <label for="user-data">Data:</label>
+    <textarea id="user-data" placeholder="Enter data"></textarea>
+    <button onclick="postUserData()">Send Data</button>
+    <div id="data-response" class="response"></div>
+  </div>
+
+  <!-- DELETE /admin/remove -->
+  <div class="endpoint">
+    <h2>DELETE /admin/remove</h2>
+    <label for="resource-id">Resource ID:</label>
+    <input type="text" id="resource-id" placeholder="Enter Resource ID">
+    <button onclick="deleteResource()">Delete Resource</button>
+    <div id="delete-response" class="response"></div>
+  </div>
+
+  <script type="module" src="api-tester.js"></script>
 </body>
 </html>
