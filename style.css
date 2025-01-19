@@ -1,0 +1,141 @@
+/* ======================================== 
+   RESET BÁSICO
+   ======================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ======================================== 
+     ESTILOS DE LA PÁGINA
+     ======================================== */
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f6f7f9;
+    color: #444;
+    /* Algo de padding para no pegar el contenido a los bordes */
+    padding: 20px;
+  }
+  
+  /* Encabezados */
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* ======================================== 
+     CONTENEDOR PRINCIPAL
+     ======================================== */
+  .container {
+    /* Centrado y tamaño máximo para verse bien en pantallas grandes */
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  /* ======================================== 
+     FORMULARIOS
+     ======================================== */
+  form {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  label {
+    margin-bottom: 6px;     /* Espacio entre el label y su campo */
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input,
+  select,
+  textarea {
+    margin-bottom: 16px;   /* Espacio inferior para separar los campos */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background: #fafafa;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  
+  /* Efecto hover/focus en los campos */
+  input:hover, 
+  select:hover,
+  textarea:hover {
+    background: #f0f0f0;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #2196F3;
+    background: #fff;
+  }
+  
+  /* ======================================== 
+     BOTONES
+     ======================================== */
+  button {
+    padding: 12px;
+    background: #2196F3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.25s;
+    margin-top: 5px; /* Para separarlo un poco del último input */
+  }
+  
+  button:hover {
+    background: #1976D2;
+  }
+  
+  /* ======================================== 
+     SECCIONES DE LISTA / DATOS
+     ======================================== */
+  .data-list-container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  .data-list-container h2 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+  }
+  
+  /* ======================================== 
+     ENLACES Y TEXTOS
+     ======================================== */
+  a {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

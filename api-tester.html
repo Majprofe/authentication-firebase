@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Tester</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .endpoint {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .response {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Tester</h1>
+
+  <!-- Login Endpoint -->
+  <div class="endpoint">
+    <h2>Login</h2>
+    <label for="email">Email:</label>
+    <input type="email" id="login-email" placeholder="Enter your email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="login-password" placeholder="Enter your password">
+
+    <button onclick="loginUser()">Login</button>
+    <div id="login-response" class="response"></div>
+  </div>
+
+  <!-- Custom Endpoint -->
+  <div class="endpoint">
+    <h2>Custom Endpoint</h2>
+    <label for="custom-endpoint">Endpoint URL:</label>
+    <input type="text" id="custom-endpoint" placeholder="Enter endpoint URL">
+
+    <label for="custom-method">HTTP Method:</label>
+    <input type="text" id="custom-method" placeholder="Enter HTTP method (GET, POST, etc.)">
+
+    <label for="custom-data">Request Body (JSON):</label>
+    <textarea id="custom-data" placeholder="Enter JSON data"></textarea>
+
+    <button onclick="callEndpoint()">Call Endpoint</button>
+    <div id="custom-response" class="response"></div>
+  </div>
+
+  <script src="api-tester.js"></script>
+</body>
+</html>
