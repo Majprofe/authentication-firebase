@@ -23,39 +23,25 @@ const urlbase = 'http://localhost:8080'
 // =====================
 window.getUserProfile = async function () {
   try {
-    const token = await auth.currentUser.getIdToken();
-    console.log(token);
-    const response = await fetch('http://localhost:8080/protected/profile', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      },
-    });
-    const result = await response.json();
-    document.getElementById('profile-response').innerText = JSON.stringify(result, null, 2);
+      const token = await auth.currentUser.getIdToken();
+      const response = await fetch('http://localhost:8080/protected/profile', {
+          method: 'GET',
+          headers: {
+              'Authorization': `Bearer ${token}`
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      document.getElementById('profile-response').innerText = JSON.stringify(result, null, 2);
   } catch (error) {
-    document.getElementById('profile-response').innerText = `Error: ${error.message}`;
+      document.getElementById('profile-response').innerText = `Error: ${error.message}`;
   }
 };
 
-// =====================
-// Función: Obtener Dashboard de Admin
-// =====================
-window.getAdminDashboard = async function () {
-  try {
-    const token = await auth.currentUser.getIdToken();
-    const response = await fetch('/admin/dashboard', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
-    const result = await response.json();
-    document.getElementById('dashboard-response').innerText = JSON.stringify(result, null, 2);
-  } catch (error) {
-    document.getElementById('dashboard-response').innerText = `Error: ${error.message}`;
-  }
-};
 
 // =====================
 // Función: Enviar Datos del Usuario
@@ -65,7 +51,7 @@ window.postUserData = async function () {
 
   try {
     const token = await auth.currentUser.getIdToken();
-    const response = await fetch('/user/data', {
+    const response = await fetch(urlbase+'/protected/data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +74,7 @@ window.deleteResource = async function () {
 
   try {
     const token = await auth.currentUser.getIdToken();
-    const response = await fetch('/admin/remove', {
+    const response = await fetch(urlbase+'/protected/remove', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
