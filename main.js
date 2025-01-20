@@ -53,7 +53,7 @@ if (registerForm) {
       const user = userCredential.user;
       alert("Usuario registrado: " + user.email);
       // Redirigir a login o donde quieras
-      window.location.href = "login.html";
+      window.location.href = "api-tester.html";
     } catch (error) {
       console.error("Error al registrar usuario:", error.message);
       alert("Error: " + error.message);
